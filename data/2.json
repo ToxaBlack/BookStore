@@ -1,0 +1,10 @@
+{
+  "book": {
+    "id": 2,
+    "title": "Test2",
+    "author": "Brown",
+    "status": "Open",
+    "description": "description2",
+    "date": "07/12/2014"
+  }
+}
