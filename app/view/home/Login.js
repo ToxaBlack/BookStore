@@ -1,4 +1,4 @@
-﻿Ext.define("BookStore.view.LoginScreen", {
+Ext.define("BookStore.view.home.Login", {
     extend: "Ext.form.Panel",
     xtype: "login",
     layout: {
@@ -9,7 +9,6 @@
     defaults : {margin:5},
     title: "Login",
     titleAlign: "center",
-    padding : 250,
     items: [
         {
             xtype: "textfield",

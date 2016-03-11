@@ -28,12 +28,13 @@ Ext.define('BookStore.Application', {
     controllers: [
         'Home',
         'List',
-        'Details'
+        'Details',
+        'Book'
     ],
 
     views: [
-        'home.Index',
-        'list.Create',
+        'home.Login',
+        'book.Create',
         'list.List',
         'details.Show'
     ],
@@ -42,8 +43,8 @@ Ext.define('BookStore.Application', {
 
 
     routes: {
-        '/': 'home#index',
-        'create': 'list#create',
+        '/': 'home#login',
+        'create': 'book#create',
         'list': 'list#list',
         'details/:id/show': 'details#show'
     },

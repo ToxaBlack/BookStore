@@ -1,19 +1,15 @@
-Ext.define('BookStore.view.details.Show', {
+Ext.define('BookStore.view.book.Create', {
     extend: 'BookStore.view.util.BookForm',
-
-    xtype: 'bookEdit',
-    id: 'bookEdit',
-    initComponent: function () {
+    initComponent: function() {
         this.callParent(arguments);
         this.add({
             xtype: 'toolbar',
             ui: 'footer',
             items: [{
-                itemId: 'updateButton',
-                text: 'Update'
+                itemId: 'saveButton',
+                text: 'Save'
             }]
         });
 
     }
-
 });

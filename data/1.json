@@ -3,7 +3,8 @@
     "id": 1,
     "title": "Test1",
     "author": "Smith",
-    "status": "Open",
+    "type": "PDF",
+    "rating": "3",
     "description": "description1",
     "date": "06/12/2013"
   }

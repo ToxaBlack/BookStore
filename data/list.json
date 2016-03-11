@@ -4,7 +4,8 @@
       "id": 1,
       "title": "Test1",
       "author": "Smith",
-      "status": "Open",
+      "type": "PDF",
+      "rating": "3",
       "description": "description1",
       "date": "06/12/2013"
     },
@@ -12,7 +13,8 @@
       "id": 2,
       "title": "Test2",
       "author": "Brown",
-      "status": "Open",
+      "type": "PDF",
+      "rating": "3",
       "description": "description2",
       "date": "07/12/2014"
     },
@@ -28,7 +30,8 @@
       "id": 4,
       "title": "Test3",
       "author": "Oderscy",
-      "status": "Open",
+      "type": "PDF",
+      "rating": "3",
       "description": "description3",
       "date": "08/12/2015"
     },
@@ -36,7 +39,8 @@
       "id": 5,
       "title": "Test3",
       "author": "Oderscy",
-      "status": "Open",
+      "type": "PDF",
+      "rating": "3",
       "description": "description3",
       "date": "08/12/2015"
     },
@@ -44,7 +48,8 @@
       "id": 6,
       "title": "Test3",
       "author": "Oderscy",
-      "status": "Open",
+      "type": "PDF",
+      "rating": "3",
       "description": "description3",
       "date": "08/12/2015"
     }

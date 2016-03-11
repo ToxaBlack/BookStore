@@ -20,9 +20,6 @@ Ext.define('BookStore.view.Viewport', {
             allowDepress: false
         },
         items: [{
-            text: 'Home',
-            itemId: 'home'
-        },{
             text: 'Books',
             itemId: 'list'
         },{
