@@ -13,11 +13,11 @@ Ext.define('BookStore.view.Viewport', {
         xtype: 'toolbar',
         region: 'north',
         itemId: 'main-nav-toolbar',
-        toggled: false,
         defaults: {
             scale: 'large',
             padding: '0 20',
-            toggleGroup: 'main-nav'
+            toggleGroup: 'main-nav',
+            toggled: false
         },
         items: [
             {

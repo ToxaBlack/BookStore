@@ -3,22 +3,17 @@ Ext.define('BookStore.view.util.BookForm', {
     bodyPadding: 20,
     buttonAlign: 'left',
     autoScroll: true,
-    fieldDefaults: {
-        labelAlign: 'right',
-        labelWidth: 85,
-        msgTarget: 'side'
-    },
     layout: "anchor",
-    items: [
-        { xtype: "panel", anchor: "100% 100%" }
-    ],
     items: [{
-        xtype: 'fieldset',
         title: 'Book Information',
-        defaultType: 'textfield',
+        xtype: 'panel',
+        id: 'form',
+        anchor: "100% 80%",
+        bodyPadding: 20,
         defaults: {
-            width: 280
+            width: 300
         },
+        defaultType: 'textfield',
         items: [{
             fieldLabel: 'Title',
             emptyText: 'Enter title',
@@ -45,13 +40,18 @@ Ext.define('BookStore.view.util.BookForm', {
             maxValue: new Date()
         },
             {
+                xtype: 'ratingfield',
+                fieldLabel: 'Rating',
+                name: 'rating',
+            },
+            {
                 xtype: 'radiogroup',
                 fieldLabel: 'Type',
-                defaults: {xtype: "radio",name: "type"},
+                defaults: {xtype: "radio", name: "type"},
                 items: [
-                    {boxLabel: 'Paper',  inputValue: 'paper'},
-                    {boxLabel: 'PDF',  inputValue: 'PDF'},
-                    {boxLabel: 'EPUB',  inputValue: 'EPUB'}
+                    {boxLabel: 'Paper', inputValue: 'paper'},
+                    {boxLabel: 'PDF', inputValue: 'PDF'},
+                    {boxLabel: 'EPUB', inputValue: 'EPUB'}
                 ]
             }]
     }]

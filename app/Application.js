@@ -12,7 +12,8 @@ Ext.define('BookStore.Application', {
     extend: 'Ext.app.Application',
 
     requires: [
-        'Ext.ux.Router'
+        'Ext.ux.Router',
+        'BookStore.view.util.Rating'
     ],
 
     model: [
