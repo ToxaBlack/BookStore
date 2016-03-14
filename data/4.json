@@ -1,10 +1,10 @@
 {
   "book": {
-    "id": 1,
-    "title": "Test1",
+    "id": 4,
+    "title": "Test4",
     "author": "Smith",
     "type": "PDF",
-    "rating": "3",
+    "rating": "4",
     "description": "description1",
     "date": "06/12/2013",
     "imageSrc": "http://www.artima.com/images/PinSCover500x500.gif"

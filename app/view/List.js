@@ -1,4 +1,4 @@
-Ext.define('BookStore.view.list.List', {
+Ext.define('BookStore.view.List', {
     extend: 'Ext.grid.Panel',
     xtype: 'bookList',
     id: 'bookList',
@@ -19,6 +19,15 @@ Ext.define('BookStore.view.list.List', {
         {header: "No", dataIndex: "id", width: 30},
         {header: "Title", dataIndex: "title", width: 200},
         {header: "Author", dataIndex: "author"},
-        {header: "Status", dataIndex: "status", width: 150}
-    ]
+        {header: "Status", dataIndex: "type", flex:1}
+    ],
+    bbar: {
+        xtype: 'pagingtoolbar',
+        store: 'BookList',
+        displayInfo: true,
+        displayMsg: 'Displaying {0} to {1} of {2} &nbsp;books ',
+        emptyMsg: "No books to display&nbsp;"
+    }
+
+
 });

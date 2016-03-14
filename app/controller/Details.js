@@ -1,34 +1,42 @@
 Ext.define('BookStore.controller.Details', {
     extend: 'Ext.app.Controller',
     refs: [
-        {ref: 'bookEdit', selector: "#bookEdit"}
+        {ref: 'bookEdit', selector: "#bookEdit"},
+        {ref: 'bookImage', selector: '#bookImage'}
     ],
 
     id: undefined,
+    self: this,
 
     init: function () {
         this.control({
             'bookEdit': {
-               afterrender: this.onEditAfterRender
+                beforerender: this.onBeforeRender
             }
         });
     },
 
 
-    show: function (params) {
+    edit: function (params) {
         this.id = params.id;
     },
 
 
-    onEditAfterRender: function (editView) {
+    onBeforeRender: function (editView) {
         var store = Ext.getStore('Book');
         store.getProxy().url = '/data/' + this.id + '.json';
-        store.load(function() {
+
+        Ext.getBody().mask();
+
+        store.load(function () {
             var user = store.getAt(0);
 
             if (user) {
                 editView.loadRecord(user);
+                var image = Ext.get('bookImage');
+                image.dom.attributes['src'].value = user.data.imageSrc;
             }
+            Ext.getBody().unmask();
         });
 
     }

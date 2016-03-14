@@ -44,6 +44,6 @@ Ext.define('BookStore.controller.List', {
     },
 
     onListItemClick: function (list, book) {
-        Ext.ux.Router.redirect('details/' + book.getId() + '/show');
+        Ext.ux.Router.redirect('books/' + book.getId());
     }
 });

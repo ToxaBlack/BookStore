@@ -8,6 +8,10 @@ Ext.define('BookStore.view.util.BookForm', {
         labelWidth: 85,
         msgTarget: 'side'
     },
+    layout: "anchor",
+    items: [
+        { xtype: "panel", anchor: "100% 100%" }
+    ],
     items: [{
         xtype: 'fieldset',
         title: 'Book Information',
@@ -30,7 +34,7 @@ Ext.define('BookStore.view.util.BookForm', {
         }, {
             xtype: 'combobox',
             fieldLabel: 'Rating',
-            name: 'state',
+            name: 'rating',
             emptyText: 'Select rating...',
             store: [1, 2, 3, 4, 5]
         }, {
@@ -43,11 +47,11 @@ Ext.define('BookStore.view.util.BookForm', {
             {
                 xtype: 'radiogroup',
                 fieldLabel: 'Type',
-                name: 'type',
+                defaults: {xtype: "radio",name: "type"},
                 items: [
-                    {boxLabel: 'Paper', name: 'rb-auto', inputValue: 'paper', checked: true},
-                    {boxLabel: 'PDF', name: 'rb-auto', inputValue: 'PDF'},
-                    {boxLabel: 'EPUB', name: 'rb-auto', inputValue: 'EPUB'}
+                    {boxLabel: 'Paper',  inputValue: 'paper'},
+                    {boxLabel: 'PDF',  inputValue: 'PDF'},
+                    {boxLabel: 'EPUB',  inputValue: 'EPUB'}
                 ]
             }]
     }]

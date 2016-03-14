@@ -1,4 +1,4 @@
-Ext.define('BookStore.view.details.Show', {
+Ext.define('BookStore.view.Edit', {
     extend: 'BookStore.view.util.BookForm',
 
     xtype: 'bookEdit',
@@ -11,7 +11,13 @@ Ext.define('BookStore.view.details.Show', {
             items: [{
                 itemId: 'updateButton',
                 text: 'Update'
-            }]
+            },
+                {
+                    xtype: 'panel',
+                    border: false,
+                    align: 'right',
+                    html: '<img id="bookImage" style="height: 100px; width: 100px;" src="" />'
+                }]
         });
 
     }

@@ -2,11 +2,11 @@ Ext.define('BookStore.controller.Home', {
     extend: 'Ext.app.Controller',
 
     refs: [
-        { ref: "userName", selector: "#usernametext" },
-        { ref: "password", selector: "#passwordtext" }
+        {ref: "userName", selector: "#usernametext"},
+        {ref: "password", selector: "#passwordtext"}
     ],
-    
-    init: function() {
+
+    init: function () {
         this.control({
             '#main-nav-toolbar button': {
                 click: this.onMainNavClick
@@ -16,24 +16,38 @@ Ext.define('BookStore.controller.Home', {
             }
         });
     },
-    
-    index: function() {
+
+    index: function () {
     },
 
-    login: function() {
+    login: function () {
+        Ext.onReady(function() {
+            var navToolbar = Ext.getCmp('viewport').down('#main-nav-toolbar');
+            navToolbar.query('> *').forEach(function (item, i) {
+                item.disabled = true;
+            });
+        });
 
     },
 
-    authenticate: function() {
+    logout: function() {
+        Ext.Router.redirect('');
+    },
+
+    authenticate: function () {
         if (this.getUserName().getValue() == "admin" &&
             this.getPassword().getValue() == "admin") {
-            Ext.Router.redirect('list');
+            var navToolbar = Ext.getCmp('viewport').down('#main-nav-toolbar');
+            navToolbar.query('> *').forEach(function (item, i) {
+                item.disabled = false;
+            });
+            Ext.Router.redirect('books');
         }
         else
             Ext.Msg.alert("Invalid credentials");
     },
-    
-    onMainNavClick: function(btn) {
-        Ext.Router.redirect(btn.itemId);
+
+    onMainNavClick: function (btn) {
+        Ext.Router.redirect(btn.link);
     }
 });

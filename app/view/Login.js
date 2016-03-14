@@ -1,4 +1,4 @@
-Ext.define("BookStore.view.home.Login", {
+Ext.define("BookStore.view.Login", {
     extend: "Ext.form.Panel",
     xtype: "login",
     layout: {

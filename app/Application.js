@@ -29,14 +29,14 @@ Ext.define('BookStore.Application', {
         'Home',
         'List',
         'Details',
-        'Book'
+        'Add'
     ],
 
     views: [
-        'home.Login',
-        'book.Create',
-        'list.List',
-        'details.Show'
+        'Login',
+        'Add',
+        'List',
+        'Edit'
     ],
 
     enableRouter: true,
@@ -44,9 +44,10 @@ Ext.define('BookStore.Application', {
 
     routes: {
         '/': 'home#login',
-        'create': 'book#create',
-        'list': 'list#list',
-        'details/:id/show': 'details#show'
+        'book/add': 'add#add',
+        'books': 'list#list',
+        'books/:id': 'details#edit',
+        'logout': 'home#logout'
     },
 
 
@@ -71,19 +72,20 @@ Ext.define('BookStore.Application', {
                     navToolbar = viewport.down('#main-nav-toolbar');
 
                 action = Ext.String.capitalize(match.action);
-                controller = match.controller.charAt(0).toLowerCase() + match.controller.substr(1);
 
-                viewClass = Ext.ClassManager.get('BookStore.view.' + controller + '.' + action);
+                viewClass = Ext.ClassManager.get('BookStore.view.' + action);
 
                 if (viewClass) {
 
+                    target.removeAll();
                     view = Ext.create(viewClass, {
                         border: false
                     });
 
-                    target.removeAll();
                     target.add(view);
                 }
+
+
             }
         });
     }
