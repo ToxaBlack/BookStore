@@ -11,12 +11,23 @@ Ext.define('BookStore.view.util.Rating', {
 
     maxStars: 5,
 
-    value: 0,
 
     initComponent: function () {
         var me = this;
         me.buildField();
         me.callParent();
+        Object.defineProperty(this, 'value', {
+            get: function() { return value; },
+            set: function(newValue) { value = newValue;},
+            enumerable: true,
+            configurable: true
+        });
+    },
+
+    listeners: {
+        propertychange: function (source, recordId, value, oldValue) {
+            Ext.Msg.alert('Property Changed', Ext.String.format('From: [{0}], To: [{1}]', oldValue.toString(), value.toString()));
+        }
     },
 
 
@@ -41,26 +52,25 @@ Ext.define('BookStore.view.util.Rating', {
             starArray.push(Ext.apply({
                 xtype: 'component',
                 cls: 'star-false',
+                id: 'star' + i,
                 listeners: {
-                    click: function (btn, e, eOpts) {
-                        if (self.hasClass(this.dom, 'star-true')) {
-                            this.removeCls('star-true');
-                            this.addCls('star-false');
-
-                        } else {
-                            this.removeCls('star-false');
-                            this.addCls('star-true');
+                    click: function (btn, element) {
+                        element.classList.add('star-true');
+                        element.classList.remove('star-false');
+                        var prev = element.previousElementSibling;
+                        while(prev) {
+                            prev.classList.remove('star-false');
+                            prev.classList.add('star-true');
+                            prev = prev.previousElementSibling;
                         }
-                        var next = this.dom.previousElementSibling;
+                        var next = element.nextElementSibling;
                         while(next) {
-                            next.classList.remove('star-false');
-                            next.classList.add('star-true');
-                            next = next.previousElementSibling;
+                            next.classList.remove('star-true');
+                            next.classList.add('star-false');
+                            next = next.nextElementSibling;
                         }
+                        self.value = parseInt(element.id.substr(4, element.id.length));
                     },
-
-
-
                     element: 'el'
                 }
             }));
