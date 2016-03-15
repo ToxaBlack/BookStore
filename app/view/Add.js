@@ -1,20 +1,21 @@
 Ext.define('BookStore.view.Add', {
     extend: 'BookStore.view.util.BookForm',
+    title: "Add",
+    titleAlign: "center",
     initComponent: function () {
         this.callParent(arguments);
         this.add(
             [{
+                fieldLabel: 'Image',
                 xtype: 'filefield',
-                width: 400,
                 hideLabel: true
-            }, {
-                xtype: 'toolbar',
-                ui: 'footer',
-                items: [{
-                    itemId: 'addButton',
-                    text: 'Add'
-                }]
             }]);
-
-    }
+    },
+    buttons: [
+        {
+            itemId: 'addButton',
+            text: 'Add',
+            align: 'right'
+        }
+    ]
 });

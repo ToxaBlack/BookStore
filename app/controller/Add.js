@@ -3,7 +3,7 @@ Ext.define('BookStore.controller.Add', {
 
     init: function () {
         this.control({
-            '#addButton button': {
+            '#addButton': {
                 click: this.save
             }
         });

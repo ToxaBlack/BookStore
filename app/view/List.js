@@ -2,6 +2,9 @@ Ext.define('BookStore.view.List', {
     extend: 'Ext.grid.Panel',
     xtype: 'bookList',
     id: 'bookList',
+    title: "List",
+    titleAlign: "center",
+    margins: {top:2, left:2, right: 2, bottom:0},
     dockedItems: [{
         xtype: 'toolbar',
         dock: 'top',
@@ -28,6 +31,5 @@ Ext.define('BookStore.view.List', {
         displayMsg: 'Displaying {0} to {1} of {2} &nbsp;books ',
         emptyMsg: "No books to display&nbsp;"
     }
-
 
 });

@@ -12,6 +12,9 @@ Ext.define('BookStore.controller.Details', {
         this.control({
             'bookEdit': {
                 beforerender: this.onBeforeRender
+            },
+            '#updateButton': {
+                click: this.update
             }
         });
     },
@@ -19,6 +22,10 @@ Ext.define('BookStore.controller.Details', {
 
     edit: function (params) {
         this.id = params.id;
+    },
+
+    update: function() {
+        Ext.Router.redirect('books');
     },
 
 

@@ -2,10 +2,25 @@
     background: url("../image/false.png")  no-repeat;
     width: 22px;
     height: 22px;
+    cursor: pointer
 }
 
 .star-true
 {
     background: url("../image/true.png")  no-repeat;
+}
+
+.bookImage {
+    height: auto;
+    width: auto;
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.footer {
+    position:fixed;float:left;
+    left:20px;
+    bottom:0;
+    height:200px;
 }
 

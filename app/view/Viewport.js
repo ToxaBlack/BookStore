@@ -15,9 +15,7 @@ Ext.define('BookStore.view.Viewport', {
         itemId: 'main-nav-toolbar',
         defaults: {
             scale: 'large',
-            padding: '0 20',
-            toggleGroup: 'main-nav',
-            toggled: false
+            padding: '0 20'
         },
         items: [
             {
@@ -31,7 +29,7 @@ Ext.define('BookStore.view.Viewport', {
                 link: 'book/add'
 
             },
-            { xtype: 'tbfill' },
+            {xtype: 'tbfill'},
             {
                 text: 'Logout',
                 itemId: 'logout',
@@ -42,6 +40,17 @@ Ext.define('BookStore.view.Viewport', {
         xtype: 'container',
         itemId: 'viewport-target',
         region: 'center',
-        layout: 'fit'
-    }]
+        scrollable: true,
+        layout: 'card'
+    },
+
+
+        {
+            xtype: 'panel',
+            region: 'south',
+            html: 'Footer text'
+        }
+
+
+    ]
 });

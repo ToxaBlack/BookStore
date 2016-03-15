@@ -1,25 +1,40 @@
 Ext.define('BookStore.view.Edit', {
-    extend: 'BookStore.view.util.BookForm',
-
+    extend: 'Ext.form.Panel',
     xtype: 'bookEdit',
     id: 'bookEdit',
-    initComponent: function () {
-        this.callParent(arguments);
-        this.add({
-            xtype: 'toolbar',
-            ui: 'footer',
-            items: [{
-                itemId: 'updateButton',
-                text: 'Update'
+    title: "Edit",
+    titleAlign: "center",
+    bodyPadding: 20,
+    layout: 'fit',
+    items: [
+        {
+            xtype: 'panel',
+            layout: {
+                type: 'hbox',
+                pack: 'start',
+                align: 'stretch'
             },
+            border: false,
+            items: [
                 {
-                    xtype: 'panel',
-                    border: false,
-                    align: 'right',
-                    html: '<img id="bookImage" style="height: 100px; width: 100px;" src="" />'
+                    xtype: 'bookForm',
+                    stretch: 1
+                },
+                {
+                    xtype: 'image',
+                    id: 'bookImage',
+                    cls: 'bookImage',
+                    stretch: 1,
+                    src: null
                 }]
-        });
-
-    }
+        }
+    ],
+    buttons: [
+        {
+            itemId: 'updateButton',
+            text: 'Update',
+            align: 'right'
+        }
+    ]
 
 });
