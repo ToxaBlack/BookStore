@@ -27,7 +27,7 @@ Ext.define('BookStore.Application', {
     ],
 
     controllers: [
-        'Home',
+        'Login',
         'List',
         'Details',
         'Add'
@@ -44,11 +44,11 @@ Ext.define('BookStore.Application', {
 
 
     routes: {
-        '/': 'home#login',
-        'book/add': 'add#add',
-        'books': 'list#list',
-        'books/:id': 'details#edit',
-        'logout': 'home#logout'
+        '/': 'login#index',
+        'book/add': 'add#index',
+        'books': 'list#index',
+        'books/:id': 'details#index',
+        'logout': 'login#index'
     },
 
 
@@ -63,30 +63,6 @@ Ext.define('BookStore.Application', {
                     buttons: Ext.Msg.OK,
                     icon: Ext.Msg.ERROR
                 });
-            },
-
-
-            dispatch: function (token, match, params, controller) {
-                var view, viewClass, action,
-                    viewport = Ext.getCmp('viewport'),
-                    target = viewport.down('#viewport-target'),
-                    navToolbar = viewport.down('#main-nav-toolbar');
-
-                action = Ext.String.capitalize(match.action);
-
-                viewClass = Ext.ClassManager.get('BookStore.view.' + action);
-
-                if (viewClass) {
-
-                    target.removeAll();
-                    view = Ext.create(viewClass, {
-                        border: false
-                    });
-
-                    target.add(view);
-                }
-
-
             }
         });
     }

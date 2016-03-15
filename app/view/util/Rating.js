@@ -37,19 +37,19 @@ Ext.define('BookStore.view.util.Rating', {
                     click: function () {
                         self.draw(this);
                         var next = this.next();
-                        while(next) {
+                        while (next) {
                             next.removeCls('star-true');
                             next = next.next();
                         }
                         self.value = parseInt(this.id.substr(4, this.id.length));
                     },
-                    mouseover: function() {
+                    mouseover: function () {
                         self.draw(this);
                     },
-                    mouseout: function() {
+                    mouseout: function () {
                         var count = parseInt(this.id.substr(4, this.id.length));
                         var prev = this;
-                        while(prev && (count > self.value)) {
+                        while (prev && (count > self.value)) {
                             prev.removeCls('star-true');
                             prev = prev.prev();
                             count--;
@@ -64,7 +64,7 @@ Ext.define('BookStore.view.util.Rating', {
 
     draw: function (star) {
         var prev = star;
-        while(prev) {
+        while (prev) {
             prev.addCls('star-true');
             prev = prev.prev();
         }

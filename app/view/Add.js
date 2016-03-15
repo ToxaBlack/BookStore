@@ -1,7 +1,7 @@
 Ext.define('BookStore.view.Add', {
     extend: 'BookStore.view.util.BookForm',
-    title: "Add",
-    titleAlign: "center",
+    title: 'Add',
+    titleAlign: 'center',
     initComponent: function () {
         this.callParent(arguments);
         this.add(

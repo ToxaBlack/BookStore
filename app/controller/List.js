@@ -1,7 +1,7 @@
 Ext.define('BookStore.controller.List', {
-    extend: 'Ext.app.Controller',
+    extend: 'BookStore.controller.BaseController',
     refs: [
-        {ref: "bookList", selector: "#bookList"}
+        {ref: 'bookList', selector: '#bookList'}
     ],
 
     init: function () {
@@ -16,16 +16,12 @@ Ext.define('BookStore.controller.List', {
         });
     },
 
-    list: function () {
-
-    },
-
-    create: function () {
-
+    index: function () {
+        this.show('List');
     },
 
     load: function () {
-        var store = Ext.getStore("BookList");
+        var store = Ext.getStore('BookList');
         store.load();
         this.getBookList().reconfigure(store);
     },
@@ -33,10 +29,7 @@ Ext.define('BookStore.controller.List', {
     delete: function() {
         var bookList = this.getBookList();
         var store = bookList.getStore();
-
-
         var selectedRows = bookList.getSelectionModel().getSelection();
-
         if (selectedRows.length)
             store.remove(selectedRows);
         else

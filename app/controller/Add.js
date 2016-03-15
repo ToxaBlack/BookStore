@@ -1,5 +1,5 @@
 Ext.define('BookStore.controller.Add', {
-    extend: 'Ext.app.Controller',
+    extend: 'BookStore.controller.BaseController',
 
     init: function () {
         this.control({
@@ -9,8 +9,8 @@ Ext.define('BookStore.controller.Add', {
         });
     },
 
-    add: function () {
-
+    index: function () {
+        this.show('Add');
     },
     save: function() {
         Ext.Router.redirect('books');

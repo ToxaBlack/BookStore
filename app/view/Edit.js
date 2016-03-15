@@ -2,8 +2,8 @@ Ext.define('BookStore.view.Edit', {
     extend: 'Ext.form.Panel',
     xtype: 'bookEdit',
     id: 'bookEdit',
-    title: "Edit",
-    titleAlign: "center",
+    title: 'Edit',
+    titleAlign: 'center',
     bodyPadding: 20,
     layout: 'fit',
     items: [

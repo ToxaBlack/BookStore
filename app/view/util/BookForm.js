@@ -59,7 +59,7 @@ Ext.define('BookStore.view.util.BookForm', {
             xtype: 'radiogroup',
             fieldLabel: 'Type',
             width: 300,
-            defaults: {xtype: "radio", name: "type"},
+            defaults: {xtype: 'radio', name: 'type'},
             items: [
                 {boxLabel: 'Paper', inputValue: 'paper'},
                 {boxLabel: 'PDF', inputValue: 'PDF'},

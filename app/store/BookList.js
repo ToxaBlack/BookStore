@@ -1,13 +1,13 @@
-﻿Ext.define("BookStore.store.BookList", {
-    extend: "Ext.data.Store",
-    model: "BookStore.model.Book",
+﻿Ext.define('BookStore.store.BookList', {
+    extend: 'Ext.data.Store',
+    model: 'BookStore.model.Book',
     pageSize: 3,
     proxy: {
-        type: "rest",
-        url: "data/list.json",
+        type: 'rest',
+        url: 'data/list.json',
         reader: {
-            type : "json",
-            root : "books"
+            type : 'json',
+            root : 'books'
         }
     }
 });

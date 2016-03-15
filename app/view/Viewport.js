@@ -13,6 +13,8 @@ Ext.define('BookStore.view.Viewport', {
         xtype: 'toolbar',
         region: 'north',
         itemId: 'main-nav-toolbar',
+
+        height: 50,
         defaults: {
             scale: 'large',
             padding: '0 20'
