@@ -1,24 +1,11 @@
-
-
-.star-true {
-    background: url("../image/true.png")  no-repeat;
-    width: 22px;
-    height: 22px;
-}
-
-.star-false {
+.star {
     background: url("../image/false.png")  no-repeat;
     width: 22px;
     height: 22px;
 }
 
-.star-false:hover,
-.star-false:hover ~ .star-false{
+.star-true
+{
     background: url("../image/true.png")  no-repeat;
 }
 
-
-.rating {
-    unicode-bidi: bidi-override;
-    direction: rtl;
-}

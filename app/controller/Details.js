@@ -35,9 +35,13 @@ Ext.define('BookStore.controller.Details', {
                 editView.loadRecord(user);
                 var image = Ext.get('bookImage');
                 image.dom.attributes['src'].value = user.data.imageSrc;
+                var rating = Ext.getCmp('starRating');
+                rating.setValue(user.data.rating);
             }
             Ext.getBody().unmask();
         });
+
+
 
     }
 });

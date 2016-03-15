@@ -11,38 +11,18 @@ Ext.define('BookStore.view.util.Rating', {
 
     maxStars: 5,
 
+    value: 0,
+
 
     initComponent: function () {
         var me = this;
         me.buildField();
-        me.callParent();
-        Object.defineProperty(this, 'value', {
-            get: function() { return value; },
-            set: function(newValue) { value = newValue;},
-            enumerable: true,
-            configurable: true
-        });
-    },
-
-    listeners: {
-        propertychange: function (source, recordId, value, oldValue) {
-            Ext.Msg.alert('Property Changed', Ext.String.format('From: [{0}], To: [{1}]', oldValue.toString(), value.toString()));
-        }
+        me.callParent(arguments);
     },
 
 
     buildField: function () {
-        var self = this;
-        this.items = Ext.apply( {
-            xtype: 'container',
-            items: self.initStars(),
-            cls: 'rating',
-            layout : {
-                type : 'hbox',
-                pack : 'end'
-            }
-        })
-
+        this.items = this.initStars();
     },
 
     initStars: function () {
@@ -51,25 +31,29 @@ Ext.define('BookStore.view.util.Rating', {
         for (var i = 0; i < this.maxStars; i++) {
             starArray.push(Ext.apply({
                 xtype: 'component',
-                cls: 'star-false',
-                id: 'star' + i,
+                cls: ['star'],
+                id: 'star' + (i + 1),
                 listeners: {
-                    click: function (btn, element) {
-                        element.classList.add('star-true');
-                        element.classList.remove('star-false');
-                        var prev = element.previousElementSibling;
-                        while(prev) {
-                            prev.classList.remove('star-false');
-                            prev.classList.add('star-true');
-                            prev = prev.previousElementSibling;
-                        }
-                        var next = element.nextElementSibling;
+                    click: function () {
+                        self.draw(this);
+                        var next = this.next();
                         while(next) {
-                            next.classList.remove('star-true');
-                            next.classList.add('star-false');
-                            next = next.nextElementSibling;
+                            next.removeCls('star-true');
+                            next = next.next();
                         }
-                        self.value = parseInt(element.id.substr(4, element.id.length));
+                        self.value = parseInt(this.id.substr(4, this.id.length));
+                    },
+                    mouseover: function() {
+                        self.draw(this);
+                    },
+                    mouseout: function() {
+                        var count = parseInt(this.id.substr(4, this.id.length));
+                        var prev = this;
+                        while(prev && (count > self.value)) {
+                            prev.removeCls('star-true');
+                            prev = prev.prev();
+                            count--;
+                        }
                     },
                     element: 'el'
                 }
@@ -78,20 +62,21 @@ Ext.define('BookStore.view.util.Rating', {
         return starArray;
     },
 
-    swap: function (star) {
-
+    draw: function (star) {
+        var prev = star;
+        while(prev) {
+            prev.addCls('star-true');
+            prev = prev.prev();
+        }
     },
-
-    hasClass: function (el, cls) {
-        return el.className && new RegExp("(\\s|^)" + cls + "(\\s|$)").test(el.className);
-    },
-
 
     getValue: function () {
         return this.value;
     },
 
     setValue: function (value) {
-
+        this.value = value;
+        var star = Ext.get('star' + value);
+        this.draw(star);
     }
 });

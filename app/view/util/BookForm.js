@@ -42,7 +42,8 @@ Ext.define('BookStore.view.util.BookForm', {
             {
                 xtype: 'ratingfield',
                 fieldLabel: 'Rating',
-                name: 'rating'
+                name: 'rating',
+                id: 'starRating'
             },
             {
                 xtype: 'radiogroup',
