@@ -6,11 +6,11 @@ Ext.define('BookStore.controller.List', {
 
     init: function () {
         this.control({
-            'bookList': {
+            '#bookList': {
                 itemdblclick: this.onListItemClick,
                 beforerender: this.load
             },
-            'bookList button[itemId=deleteButton]': {
+            '#bookList button[itemId=deleteButton]': {
                 click: this.delete
             }
         });

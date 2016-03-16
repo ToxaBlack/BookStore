@@ -1,58 +1,76 @@
 Ext.define('BookStore.view.Viewport', {
-    renderTo: Ext.getBody(),
+    renderTo: Ext.get('main'),
     extend: 'Ext.container.Viewport',
     requires: [
         'Ext.layout.container.Border',
         'Ext.toolbar.Toolbar',
         'Ext.panel.Panel'
     ],
-
+    alias: 'widget.testviewport',
     id: 'viewport',
-    layout: 'border',
-    items: [{
-        xtype: 'toolbar',
-        region: 'north',
-        itemId: 'main-nav-toolbar',
+    overflowY: 'auto',
+    layout: 'auto',
 
-        height: 50,
-        defaults: {
-            scale: 'large',
-            padding: '0 20'
-        },
-        items: [
-            {
-                text: 'Books',
-                itemId: 'books',
-                link: 'books'
-            },
-            {
-                text: 'New book',
-                itemId: 'add',
-                link: 'book/add'
-
-            },
-            {xtype: 'tbfill'},
-            {
-                text: 'Logout',
-                itemId: 'logout',
-                link: 'logout'
-            }
-        ]
-    }, {
-        xtype: 'container',
-        itemId: 'viewport-target',
-        region: 'center',
-        scrollable: true,
-        layout: 'card'
-    },
-
-
+    items: [
         {
             xtype: 'panel',
-            region: 'south',
-            html: 'Footer text'
+            border: false,
+            itemId: 'main-nav-toolbar',
+            height: 60,
+            defaults: {
+                scale: 'large',
+                margin: 10
+            },
+            layout: {
+                type: 'hbox'
+            },
+            items: [
+                {
+                    xtype: 'panel',
+                    border: false,
+                    html: '<h3>Book Store'
+                },
+                {
+                    xtype: 'button',
+                    text: 'Books',
+                    itemId: 'books',
+                    link: 'books'
+                },
+                {
+                    xtype: 'button',
+                    text: 'New book',
+                    itemId: 'add',
+                    link: 'book/add'
+
+                },
+                {xtype: 'tbfill'},
+                {
+                    xtype: 'button',
+                    text: 'Logout',
+                    itemId: 'logout',
+                    link: 'logout'
+                }
+            ]
+        }, {
+            xtype: 'container',
+            itemId: 'viewport-target',
+            id: 'viewport-target',
+
+            layout: 'fit'
+        }, {
+            xtype: 'panel',
+            border: false,
+            itemId: 'spacer',
+            id: 'spacer',
+            layout: 'fit'
+        }, {
+
+            xtype: 'component',
+            autoEl: {
+                tag: 'footer'
+            },
+            margin: 10,
+            html: '<h3>© 2016 Book Store'
         }
-
-
     ]
 });

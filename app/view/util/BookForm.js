@@ -3,28 +3,35 @@ Ext.define('BookStore.view.util.BookForm', {
     bodyPadding: 20,
     border: false,
     alias: 'widget.bookForm',
+    layout: {
+        type: 'vbox',
+        align: 'stretch'
+    },
     defaults: {
-        width: 600,
         padding: 10
 
     },
     items: [
         {
-            padding: {top:0, left:10, right: 0, bottom:0},
+            padding: {top: 0, left: 10, right: 0, bottom: 0},
             xtype: 'panel',
-            layout: 'column',
+            layout: {
+                type: 'hbox'
+            },
             border: false,
             defaultType: 'textfield',
             defaults: {
-                columnWidth: 0.5
+                flex: 1
             },
             items: [
                 {
-                    padding: {top:0, left:0, right: 10, bottom:0},
+                    padding: {right: 20},
                     fieldLabel: 'Title',
                     emptyText: 'Enter title',
                     name: 'title'
-                }, {
+                },
+                {
+                    padding: {left: 20, right: 10},
                     fieldLabel: 'Author',
                     emptyText: 'Enter author',
                     name: 'author'

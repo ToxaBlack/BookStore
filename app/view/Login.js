@@ -2,11 +2,11 @@ Ext.define('BookStore.view.Login', {
     extend: 'Ext.form.Panel',
     xtype: 'login',
     layout: {
-        type : 'hbox',
-        pack : 'center',
-        align : 'middle'
+        type : 'vbox',
+       align : 'center'
     },
-    defaults : {margin:5},
+    defaults : {margin:10},
+
     title: 'Login',
     titleAlign: 'center',
     items: [

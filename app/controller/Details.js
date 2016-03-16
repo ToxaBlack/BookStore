@@ -7,7 +7,7 @@ Ext.define('BookStore.controller.Details', {
 
     init: function () {
         this.control({
-            'bookEdit': {
+            '#bookEdit': {
                 beforerender: this.onBeforeRender
             },
             '#updateButton': {
@@ -40,7 +40,7 @@ Ext.define('BookStore.controller.Details', {
             if (user) {
                 editView.loadRecord(user);
                 var image = self.getBookImage();
-                image.src = user.data.imageSrc;
+                image.setSrc(user.data.imageSrc);
                 var rating = self.getRating();
                 rating.setValue(user.data.rating);
             }

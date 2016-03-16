@@ -50,9 +50,20 @@ Ext.define('BookStore.Application', {
         'books/:id': 'details#index',
         'logout': 'login#index'
     },
+    calculate: function () {
+        var content = Ext.getCmp('viewport-target');
+        var viewport = Ext.getCmp('viewport');
+        var spacer = Ext.getCmp('spacer');
+        if (content.rendered && viewport && spacer) {
+            var minHeight = viewport.getHeight() - 110 - content.getHeight();
+            spacer.setHeight(minHeight);
+        }
+    },
 
 
     launch: function () {
+
+        Ext.EventManager.onWindowResize(this.calculate);
 
         Ext.ux.Router.on({
 

@@ -1,13 +1,6 @@
 Ext.define('BookStore.controller.BaseController', {
     extend: 'Ext.app.Controller',
 
-    init: function () {
-        this.control({
-            '#main-nav-toolbar button': {
-                click: this.onMainNavClick
-            }
-        });
-    },
 
     show: function (view) {
         var viewClass,
@@ -24,10 +17,7 @@ Ext.define('BookStore.controller.BaseController', {
             });
 
             target.add(view);
+           this.getApplication().calculate();
         }
-    },
-
-    onMainNavClick: function (btn) {
-        Ext.Router.redirect(btn.link);
     }
 });
